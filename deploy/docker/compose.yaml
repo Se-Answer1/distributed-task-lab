@@ -1,0 +1,7 @@
+services:
+  zookeeper:
+    image: zookeeper:3.9.6-jre-17
+    container_name: distributed-task-lab-zookeeper
+    ports:
+      - "2181:2181"
+    restart: unless-stopped
