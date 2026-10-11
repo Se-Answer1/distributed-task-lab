@@ -10,6 +10,21 @@ public final class ZkPaths {
     public static final String JOBS =
             ROOT + "/config/jobs";
 
+    public static final String WORKERS =
+            ROOT + "/runtime/workers";
+
+    public static String workerPath(String workerId) {
+
+        if (workerId == null ||
+                !workerId.matches("[a-zA-Z0-9_-]+")) {
+            throw new IllegalArgumentException(
+                    "Invalid workerId: " + workerId
+            );
+        }
+
+        return WORKERS + "/" + workerId;
+    }
+
     // 根据 jobId 生成 Job 节点路径
     public static String jobPath(String jobId) {
 
